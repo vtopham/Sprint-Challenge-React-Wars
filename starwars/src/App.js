@@ -11,22 +11,29 @@ const App = () => {
   // side effect in a component, you want to think about which state and/or props it should
   // sync up with, if any.
 
-  const [characters, setCharacters] = useState([]);
+  const [responseData, setResponseData] = useState({});
+  const [characters, setCharacters] = useState(null);
+  // const next = "";
+  // const previous = "";
 
-  useEffect(() => {
-    axios.get("https://swapi.co/api/people/1/")
-    .then((response) =>{
-      console.log(response);
-    })
-    .catch((response) => {
-      alert("Try again, friend-o");
-    })
-  },[])
+  // useEffect(() => {
+  //   axios.get(`${home}`)
+  //   .then((response) =>{
+  //     console.log(response) //remove this in the end
+  //     setResponseData(response);
+  //     setCharacters(response.data.results); //this is an array of people
+  //   })
+  //   .catch((response) => {
+  //     alert("Try again, friend-o");
+  //   })
+  // },[])
+
+
 
   return (
     <div className="App">
       <h1 className="Header">React Wars</h1>
-      {/* <CharacterCard /> */}
+      <CharacterCard characters = {characters} setCharacters = {setCharacters}/>
     </div>
   );
 }
