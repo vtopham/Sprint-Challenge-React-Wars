@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import './App.css';
 import CharacterCard from "./components/CharacterDisplay";
 import axios from "axios";
+import Pages from "./components/Pages"
 
 const App = () => {
   // Try to think through what state you'll need for this app before starting. Then build out
@@ -13,6 +14,7 @@ const App = () => {
 
   const [responseData, setResponseData] = useState({});
   const [characters, setCharacters] = useState(null);
+  const [pullURL, setPullURL] = useState("https://swapi.co/api/people/");
   // const next = "";
   // const previous = "";
 
@@ -33,7 +35,8 @@ const App = () => {
   return (
     <div className="App">
       <h1 className="Header">React Wars</h1>
-      <CharacterCard characters = {characters} setCharacters = {setCharacters}/>
+      <Pages pullURL = {pullURL} setPullURL = {setPullURL} responseData = {responseData}/>
+      <CharacterCard characters = {characters} setCharacters = {setCharacters} pullURL = {pullURL} setResponseData = {setResponseData}/>
     </div>
   );
 }

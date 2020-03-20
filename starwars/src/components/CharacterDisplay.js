@@ -26,24 +26,20 @@ const Stats = styled.p`
 //FUNCTION
 function CharacterCard(props) {
 
-const {characters, setCharacters} = props;
-
-
-//get the data
-const home = "https://swapi.co/api/people/"
+const {characters, setCharacters, setResponseData, pullURL} = props;
 
 useEffect(() => {
-    axios.get(`${home}`)
+    axios.get(`${pullURL}`)
     .then((response) => {
       console.log(response) //remove this in the end
-    //   setResponseData(response);
+      setResponseData(response);
       setCharacters(response.data.results); //this is an array of people
       console.log(characters, " 1. after setCharacters");
     })
     .catch((response) => {
       alert("Try again, friend-o");
     })
-  },[]);
+  },[pullURL]);
 
   console.log(characters, " 2. after useeffect");
 
@@ -54,20 +50,20 @@ if (characters === null) {
     )
 } else {
     return (
-        <CharacterHolder>
+        <>
             {characters.map((i) => {
                 return (
-                    <>
+                    <CharacterHolder>
                         <CardTitle>{i.name}</CardTitle>
                         <Stats>Height: {i.height}</Stats>
                         <Stats>Mass: {i.mass}</Stats>
                         <Stats>Eye Color: {i.eye_color}</Stats>
                         <Stats>Number of films: {i.films.length}</Stats>
-                    </>
+                    </CharacterHolder>
                 )
             })}
-            
-        </CharacterHolder>
+        </>
+       
 
     );
 }
