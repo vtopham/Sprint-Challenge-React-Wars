@@ -11,15 +11,19 @@ const CharacterHolder = styled.div`
     margin: 0 auto;
     margin-bottom: 2%;
     
-    padding: 1% 2%;
+    padding: 1% 5%;
 `;
 
 const CardTitle = styled.h2`
     color: black;
+    font-family: 'Codystar', cursive;
 `;
 
 const Stats = styled.p`
     color: black;
+    
+    font-family: 'Press Start 2P', cursive;
+    text-align: left;
 `;
 
 
@@ -31,17 +35,16 @@ const {characters, setCharacters, setResponseData, pullURL} = props;
 useEffect(() => {
     axios.get(`${pullURL}`)
     .then((response) => {
-      console.log(response) //remove this in the end
+    //   console.log(response) //remove this in the end
       setResponseData(response);
       setCharacters(response.data.results); //this is an array of people
-      console.log(characters, " 1. after setCharacters");
+
     })
     .catch((response) => {
       alert("Try again, friend-o");
     })
   },[pullURL]);
 
-  console.log(characters, " 2. after useeffect");
 
 
 if (characters === null) {
