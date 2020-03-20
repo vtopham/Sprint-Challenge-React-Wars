@@ -24,15 +24,25 @@ In this challenge, create a web page that presents a styled list of Star Wars ch
 
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your Team Lead.
 
-- [ ] What is React JS and what problems does it try and solve? Support your answer with concepts introduced in class and from your personal research on the web.
+- [x] What is React JS and what problems does it try and solve? Support your answer with concepts introduced in class and from your personal research on the web.
 
-- [ ] What does it mean to _think_ in react?
+React JS is user interface component library that helps to render your code on a virtual Dom. React JS solves issues with having many files by allowing you to write your HTML as JSX in your JavaScript file. It is also scalable and reusable, letting developers work faster.
 
-- [ ] Describe state.
+- [x] What does it mean to _think_ in react?
 
-- [ ] Describe props.
+Thinking in react means to think about the app your trying to build as you design it with react in mind. This means to work with components in mind and how they can be built and used.
 
-- [ ] What are side effects, and how do you sync effects in a React component to state or prop changes?
+- [x] Describe state.
+
+State is a value that is saved “on state”. A component can have many slices of state with their own values. If a component’s state has changed, that component and its children re-render.
+
+- [x] Describe props.
+
+Props are properties that are passed down from one component to another. It is a way to ensure that data flows downward. This is typically data held on state.
+
+- [x] What are side effects, and how do you sync effects in a React component to state or prop changes?
+
+A side effect is anything that affects something outside the scope of the function that’s being executed. In order to sync effects in a react component to state or props changes, we can use the useEffect javascript hook, to execute the code after the render. You could use a dependency array to make sure that it executes when the desired prop or state changes.
 
 ## Project Set Up
 
